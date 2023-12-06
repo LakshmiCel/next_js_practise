@@ -1,15 +1,23 @@
-import HomeLayout from "../Components/HomeLayout"
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+ 
+// Current URL is '/'
+function Page() {
+  const router = useRouter()
+ 
+  useEffect(() => {
+    // Always do navigations after the first render
+   
+  }, [])
+ 
+  useEffect(() => {
+   setTimeout( ()=>{router.push('/login',undefined,{shallow:true})},2000)
+  }, [])
 
-
-
-export default function Home() {
   return (
-  
-   <div>
-    This is home content
-   </div>
+    <>
+    this will be redirected to login page without page refresh  </>
   )
 }
-Home.getLayout=function getLayout(page){
-return <HomeLayout>{page}</HomeLayout>
-}
+ 
+export default Page
